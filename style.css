@@ -1,0 +1,653 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    background-image: url('background.jpg'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center center; 
+    height: 100vh; 
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Loading spinner styles */
+.spinner {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #0056b3;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    left: 500;
+    right: 500;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Hide the loading spinner initially */
+  .hidden {
+    display: none;
+  }
+
+/* Side Bar */
+.sidebar {
+    width: 250px;
+    background-color: transparent;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.sidebar-logo h2 {
+    font-size: 1.5em;
+    color: #f8f9fa;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-nav li {
+    margin: 20px 0;
+}
+
+.sidebar-nav a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* Dash Board */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Simple fade-in animation for weather icons */
+.weather-icon {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+  
+@keyframes fadeIn {
+      100% {
+      opacity: 1;
+    }
+}
+
+/* Temperature toggle */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 35px;
+    left: 850px;
+    top: 10px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 30px;
+    width: 30px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+.temp-toggle {
+    margin-top: 10px;
+}
+
+#toggleLabel {
+    margin-left: 850px;
+    font-weight: bold;
+
+}
+
+/* Weather Widget */
+.weather-widget {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgb(243, 240, 240);
+    text-align: left;
+    margin-bottom: 20px; 
+}
+
+/* Background styles for weather conditions */
+.clear-sky-bg {
+    background: linear-gradient(to bottom, #87CEFA, #00BFFF);
+}
+
+.cloudy-bg {
+    background: linear-gradient(to bottom, #B0C4DE, #778899);
+}
+
+.rainy-bg {
+    background: linear-gradient(to bottom, #4682B4, #5F9EA0);
+}
+
+.snowy-bg {
+    background: linear-gradient(to bottom, #ADD8E6, #F0F8FF);
+}
+
+.default-bg {
+    background: linear-gradient(to bottom, #D3D3D3, #A9A9A9);
+}
+
+ .weather-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/* Toggle Styles */ 
+.unit-toggle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    left: -10px;
+}
+
+.toggle-checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.toggle-label:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.toggle-checkbox:checked + .toggle-label {
+    background-color: #2196F3;
+}
+
+.toggle-checkbox:checked + .toggle-label:before {
+    transform: translateX(26px);
+}
+
+.unit-text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.unit-text:first-of-type {
+    left: -25px;
+}
+
+.unit-text:last-of-type {
+    right: -20px;
+}
+
+/* Header Section */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    width: 70%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#getWeatherBtn {
+    width: 16%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #f8f8f8;
+    background-color: #0066cc;
+    color: rgb(255, 232, 232);
+    border-radius: 4px;
+    cursor: pointer;
+    height: 40px;
+    margin-left: 3px;
+    margin-right: 38px;
+}
+
+#getWeatherBtn:hover {
+    background-color: #0056b3;
+}
+
+/* User Profile Circle And Card*/
+.user-profile {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+} 
+
+.user-profile img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; 
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 999;
+}
+
+.profile-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #232342;
+    border: 1px solid #0056b3;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #0056b3;
+    z-index: 1000;
+    text-align: center;
+    width: 300px;
+    height: 200px;
+    color: #ffffff;    
+}
+
+.profile-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.profile-card h2 {
+    margin: 10px 0;
+    font-size: 1.7em;
+}
+
+.profile-card p {
+    margin: 5px 0;
+    font-size: 1.2em;
+}
+
+#closeProfileCard {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.7em;
+    cursor: pointer;
+}
+
+.profile-card.hidden {
+    display: none;
+}
+
+/* Chart Section */
+.chart-section {
+    display: grid;
+    font-style: bold;
+    padding-left: 20px;
+    padding-right: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    justify-items: center;
+    color: #f3f3f3;
+}
+
+.chart-container {
+    text-align: center;
+    width: 100%; 
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 250px; 
+}
+
+/* Table Section */
+#tablesSection {
+    width: 100%;
+}
+
+#weatherTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px; 
+}
+
+#weatherTable th, #weatherTable td {
+    color: #fcf7f7;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#weatherTable th {
+    background-color: #2b2929;
+}
+
+.tables-layout {
+    color: #fcf7f7;
+    display: flex;
+    gap: 20px;
+}
+
+.table-container {
+    flex: 2;
+}
+
+
+
+/* Sort and Filter Button Styles */
+#controls {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#controls select {
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#controls select:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+/* Pagination */
+#pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#pagination button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    font-size: 14px;
+    border: 1px solid #ffffff;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#pagination button:hover,
+#pagination button.active {
+    background-color: #0056b3;
+    color: white;
+}
+
+/* Utility Classes */
+.hidden-section {
+    display: none;
+}
+
+.active-section {
+    display: block;
+}
+
+/* Chatbot Widget */
+#chatbot-section {
+    flex: 1;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+#chatbotConversation {
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+#user-query {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+#send-query {
+    padding: 5px 10px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 3px; 
+    cursor: pointer;
+}
+
+#chatbot-response {
+    height: 300px; 
+    overflow-y: auto;
+    border: 1px solid #eee;
+    margin-top: 10px; 
+    padding: 10px;
+    background-color: #2b2929; 
+    color: rgb(255, 255, 255);
+}
+
+
+/* Media Queries */
+@media only screen and (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    .sidebar-nav ul {
+        display: flex;
+    }
+
+    .sidebar-nav li {
+        margin: 0 10px;
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+
+    .chart-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media only screen and (max-width: 992px) {
+    .header {
+        flex-direction: column;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #getWeatherBtn {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .user-profile {
+        align-self: flex-end;
+    }
+
+    .chart-section {
+        grid-template-columns: 1fr;
+    }
+
+    .tables-layout {
+        flex-direction: column;
+    }
+
+    .table-container, #chatbot-section {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .sidebar-logo h2 {
+        display: none;
+    }
+
+    .sidebar-nav ul {
+        flex-direction: column;
+    }
+
+    .sidebar-nav li {
+        margin: 10px 0;
+    }
+
+    .weather-widget {
+        padding: 10px;
+    }
+
+    .temp-toggle, #toggleLabel {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    #weatherTable th, #weatherTable td {
+        padding: 5px;
+        font-size: 14px;
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    .sidebar {
+        flex-direction: column;
+    }
+
+    .sidebar-logo {
+        margin-bottom: 10px;
+    }
+
+    .chart-container {
+        height: 300px;
+    }
+
+    .profile-card {
+        width: 90%;
+        height: auto;
+    }
+
+    #pagination button {
+        padding: 3px 6px;
+        font-size: 12px;
+    }
+}
