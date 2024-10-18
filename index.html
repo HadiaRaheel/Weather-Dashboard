@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="overlay hidden"></div>
+
+    <div class="container">
+
+        <!-- Side menu -->
+        <aside class="sidebar">
+            
+            <div class="sidebar-logo">
+                <img src="logo.jpg" alt="Weather App Logo" class="logo-img">
+                <h2>Weather App</h2>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#dashboard" id="dashboardLink">Dashboard</a></li>
+                    <li><a href="#tables" id="tablesLink">Tables</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        
+        <!-- Main Content -->
+        <div class="main-content">
+
+            <!-- Header -->
+            <header class="header">
+                <input type="text" id="cityInput" class="search-bar" placeholder="Search City">
+                
+                <!-- Added "Get Weather" button -->
+                <button id="getWeatherBtn">Get Weather</button> 
+                
+                <!-- User Profile Circle -->
+                <div class="user-profile" id="userProfile">
+                    <img src="profile.jpg" alt="User Profile" class="profile-icon">
+                </div>
+                
+                <!-- User Profile Card -->
+                <div class="profile-card hidden">
+                    <button id="closeProfileCard">&times;</button>
+                    <img src="profile.jpg" alt="Profile Picture">
+                    <h2>Hadia Raheel</h2>
+                    <p>hadiraheel124@gmail.com</p>
+                </div>
+
+            </header>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="active-section">
+                
+            <!-- Loading Spinner -->
+            <div id="loadingSpinner" class="hidden">
+                <div class="spinner"></div>
+            </div>
+    
+            <!-- Weather Widget -->
+            <div class="weather-widget" id="weatherWidget">
+                                        
+                <!-- Temperature Toggle Button -->
+                <div class="temp-toggle">
+                    <label class="switch">
+                        <input type="checkbox" id="tempToggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <span id="toggleLabel">°C/°F</span>
+                </div>
+                    
+                <h2 id="location">Weather in -</h2>
+                <img id="weather-icon" src="" alt="Weather Icon" class="weather-icon">
+                <p id="temperature">Temperature: -°C</p>
+                <p id="humidity">Humidity: -%</p>
+                <p id="weather">Weather: -</p>
+                <p id="wind-speed">Wind Speed: - m/s</p>                      
+                    
+            </div>
+
+            <!-- Chart Section -->
+            <div class="chart-section">
+                <div class="chart-container">
+                    <canvas id="tempBarChart"></canvas>
+                    <p>Vertical Bar Chart: Temperature for next 5 days</p>
+                </div>
+            
+                <div class="chart-container">                        
+                    <canvas id="weatherDonutChart"></canvas>
+                    <p>Doughnut Chart: Weather conditions over 5 days</p>
+                </div>
+            
+                <div class="chart-container">
+                    <canvas id="tempLineChart"></canvas>
+                    <p>Line Chart: Temperature changes for next 5 days</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Tables Section -->
+        <section id="tables" class="hidden-section">
+            <div class="tables-layout">
+                <div class="table-container">
+                    <h2>Weather Data Tables</h2>
+                    
+                    <!-- Buttons for filtering and sorting -->
+                    <div id="controls">
+                        <select id="sortSelect">
+                            <option value="">Sort by Temperature</option>
+                            <option value="asc">Ascending</option>
+                            <option value="desc">Descending</option>
+                        </select>
+                        
+                        <select id="filterSelect">
+                            <option value="">Filter Weather</option>
+                            <option value="rain">Rainy Days</option>
+                            <option value="highest">Highest Temperature</option>
+                        </select>
+
+                    </div>
+
+                    <table id="weatherTable">
+                
+                        <!-- Table content will be dynamically populated -->
+                    </table>
+            
+                    <div id="pagination"></div>
+            
+                </div>
+                    
+                <!-- Chatbot Widget -->
+                <div id="chatbot-section">
+                    <h3>Weather Chatbot</h3>
+                    <input type="text" id="user-query" placeholder="Ask about the weather...">
+                    <button id="send-query">Ask Chatbot</button>
+                    <div id="chatbot-response"></div>
+                </div>
+            </div>
+        </section>
+
+    </div>        
+    </div>
+    </div>
+    
+    <script src="script.js"></script>
+
+</body>
+</html>
